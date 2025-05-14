@@ -35,3 +35,39 @@ Install dependencies:
 
 ```bash
 pip install -r requirements.txt
+
+
+🚀 Usage
+Batch Historical Scraping
+```bash
+python workers_scraper.py
+Edit the overall_start_date and overall_end_date in the script.
+
+Single-Day Scraping
+```bash
+python single_day_scraper.py
+Edit start_date and end_date directly in the script.
+
+
+💾 Output
+Each script saves results to a CSV file:
+forex_factory_data_YYYYMMDD_to_YYYYMMDD.csv
+With columns:
+
+-datetime
+
+-currency
+
+-impact
+
+-event
+
+-actual
+
+-forecast
+
+-previous
+
+
+🧠 Tip
+The first time you run it, Chrome may open with cookie prompts. The scripts try to auto-accept cookie banners where possible.
