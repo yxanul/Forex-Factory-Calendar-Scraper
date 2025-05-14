@@ -1,3 +1,6 @@
+
+
+
 # Forex Factory Calendar Scraper
 
 This project provides two Python scripts for scraping economic calendar data from [ForexFactory.com](https://www.forexfactory.com/calendar), with full parsing of event time, currency, impact level, and outcome details.
@@ -20,7 +23,7 @@ Forex Factory uses **Cloudflare bot protection**, which can block automated brow
 
 To work around this:
 - Both scripts use `undetected-chromedriver` (UC)
-- **Headless mode is disabled intentionally**
+- **Headless mode is intentionally disabled**
 - UC helps bypass Cloudflare and keeps the session human-like
 
 You’ll see a visible Chrome browser window when scraping — this is expected and required for reliable operation.
@@ -29,45 +32,67 @@ You’ll see a visible Chrome browser window when scraping — this is expected 
 
 - Python 3.7+
 - Google Chrome installed
-- [ChromeDriver](https://chromedriver.chromium.org/downloads) (handled automatically by `undetected-chromedriver`)
+- [ChromeDriver](https://chromedriver.chromium.org/downloads) (automatically managed by `undetected-chromedriver`)
 
 Install dependencies:
 
 ```bash
 pip install -r requirements.txt
+````
 
+---
 
-🚀 Usage
-Batch Historical Scraping
+## 🚀 Usage
+
+### Batch Historical Scraping
+
 ```bash
 python workers_scraper.py
-Edit the overall_start_date and overall_end_date in the script.
+```
 
-Single-Day Scraping
+Edit the `overall_start_date` and `overall_end_date` inside the script to define the range.
+
+---
+
+### Single-Day Scraping
+
 ```bash
 python single_day_scraper.py
-Edit start_date and end_date directly in the script.
+```
 
+Edit `start_date` and `end_date` inside the script for the target date(s).
 
-💾 Output
+---
+
+## 💾 Output
+
 Each script saves results to a CSV file:
+
+```
 forex_factory_data_YYYYMMDD_to_YYYYMMDD.csv
+```
+
 With columns:
 
--datetime
+* `datetime`
+* `currency`
+* `impact`
+* `event`
+* `actual`
+* `forecast`
+* `previous`
 
--currency
+---
 
--impact
+## 🧠 Tip
 
--event
+The first time you run it, Chrome may open with cookie prompts. The scripts attempt to automatically accept cookie banners when possible.
 
--actual
+---
 
--forecast
+## 📄 License
 
--previous
+This project is licensed under the MIT License. Use it freely and contribute back if you improve it!
 
 
-🧠 Tip
-The first time you run it, Chrome may open with cookie prompts. The scripts try to auto-accept cookie banners where possible.
+
